@@ -19,7 +19,6 @@
 					<p>{paragraph}</p>
 				{/each}
 			</div>
-
 			<ul class="grid grid-cols-1 gap-4">
 				{#each about.values as value, i (value.title)}
 					{@const Icon = icons[/** @type {keyof typeof icons} */ (value.icon)]}

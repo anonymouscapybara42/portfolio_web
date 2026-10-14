@@ -35,9 +35,11 @@ The output in `build/` is a static site. Use any of these:
 | --- | --- |
 | **Netlify** | Build command `npm run build`, publish directory `build` |
 | **Vercel** | Framework preset "SvelteKit" or "Other"; build `npm run build`, output `build` |
-| **Cloudflare Pages** | Build command `npm run build`, output directory `build` |
+| **Cloudflare Pages** | Build command `npm run build`, output directory `build`; no deploy command |
 | **GitHub Pages** | Build in a GitHub Action, publish `build/`. If served from a sub-path (`user.github.io/repo`), set `paths.base` in `vite.config.js` |
 | **Hostinger / any static host** | Run `npm run build`, upload the *contents* of `build/` to `public_html` |
+
+This project uses SvelteKit's static adapter. Deploy it as a **Cloudflare Pages** site; do not use `npx wrangler deploy`, which targets Cloudflare Workers and requires a Worker adapter/configuration this project does not use. In Pages, set the build output directory to `build` and leave deploy/preview commands unset.
 
 After deploying, set `profile.site.url` in `src/lib/data/profile.js` to your live URL (no trailing slash) so Open Graph and canonical links are absolute.
 

@@ -4,6 +4,7 @@
 	import X from '@lucide/svelte/icons/x';
 	import ResumeButton from './ResumeButton.svelte';
 	import { navLinks, profile } from '#lib/data/profile.js';
+	import { pointerGlow } from '#lib/pointerGlow.js';
 
 	let open = $state(false);
 	let scrolled = $state(false);
@@ -115,8 +116,9 @@
 				<li>
 					<a
 						href={link.href}
+						use:pointerGlow
 						aria-current={active === link.href ? 'true' : undefined}
-						class="relative block rounded-md px-3 py-2 text-sm transition-colors {active === link.href
+						class="pointer-glow relative block rounded-md px-3 py-2 text-sm transition-colors {active === link.href
 							? 'text-ink'
 							: 'text-muted hover:text-ink'}"
 					>
@@ -128,7 +130,11 @@
 				</li>
 			{/each}
 			<li class="ml-3">
-				<ResumeButton variant="outline" class="!min-h-10 !py-2 !text-sm" />
+				<ResumeButton
+					variant="outline"
+					class="!min-h-10 !py-2 !text-sm"
+					pointerGlow={true}
+				/>
 			</li>
 		</ul>
 
@@ -136,7 +142,8 @@
 		<button
 			bind:this={toggleBtn}
 			type="button"
-			class="-mr-2 inline-flex size-11 items-center justify-center rounded-md text-ink md:hidden"
+			use:pointerGlow
+			class="pointer-glow -mr-2 inline-flex size-11 items-center justify-center rounded-md text-ink md:hidden"
 			aria-expanded={open}
 			aria-controls="mobile-menu"
 			aria-label={open ? 'Close menu' : 'Open menu'}
@@ -160,9 +167,10 @@
 				<li>
 					<a
 						href={link.href}
+						use:pointerGlow
 						onclick={() => close()}
 						aria-current={active === link.href ? 'true' : undefined}
-						class="flex min-h-12 items-center justify-between border-b border-line py-3 text-lg {active ===
+						class="pointer-glow flex min-h-12 items-center justify-between border-b border-line py-3 text-lg {active ===
 						link.href
 							? 'text-ink'
 							: 'text-muted'}"
@@ -173,7 +181,7 @@
 				</li>
 			{/each}
 			<li class="pt-6">
-				<ResumeButton variant="primary" class="w-full" />
+				<ResumeButton variant="primary" class="w-full" pointerGlow={true} />
 			</li>
 		</ul>
 	</div>
