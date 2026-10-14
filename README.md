@@ -34,7 +34,7 @@ The output in `build/` is a static site. Use any of these:
 | Host | Settings |
 | --- | --- |
 | **Netlify** | Build command `npm run build`, publish directory `build` |
-| **Vercel** | Framework preset "SvelteKit" or "Other"; build `npm run build`, output `build` |
+| **Vercel** | Framework preset "Other"; build `npm run build`, output `build` (also set in `vercel.json`) |
 | **Cloudflare Pages** | Build command `npm run build`, output directory `build`; no deploy command |
 | **GitHub Pages** | Build in a GitHub Action, publish `build/`. If served from a sub-path (`user.github.io/repo`), set `paths.base` in `vite.config.js` |
 | **Hostinger / any static host** | Run `npm run build`, upload the *contents* of `build/` to `public_html` |
