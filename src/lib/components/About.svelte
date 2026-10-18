@@ -22,7 +22,15 @@
 			<ul class="grid grid-cols-1 gap-4">
 				{#each about.values as value, i (value.title)}
 					{@const Icon = icons[/** @type {keyof typeof icons} */ (value.icon)]}
-					<li class="card flex gap-4 p-5 transition-colors hover:border-line-strong" use:reveal={{ delay: i * 80 }}>
+					<li
+						class="card flex gap-4 p-5
+							transition-[transform,box-shadow,border-color] duration-300 ease-out
+							hover:scale-[1.02] hover:border-[#9BEA22]
+							hover:shadow-[0_0_18px_rgba(155,234,34,0.22),0_0_48px_rgba(155,234,34,0.10)]
+							focus-within:scale-[1.02] focus-within:border-[#9BEA22]
+							focus-within:shadow-[0_0_18px_rgba(155,234,34,0.22),0_0_48px_rgba(155,234,34,0.10)]"
+						use:reveal={{ delay: i * 80 }}
+					>
 						<span
 							class="flex size-10 shrink-0 items-center justify-center rounded-lg border border-line bg-surface-2 text-accent"
 						>
